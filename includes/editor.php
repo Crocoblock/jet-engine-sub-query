@@ -51,6 +51,13 @@ class Editor extends \Jet_Engine\Query_Builder\Query_Editor\Base_Query {
 					size="fullwidth"
 					v-model="query.prop"
 				><jet-query-dynamic-args v-model="dynamicQuery.prop"></jet-query-dynamic-args></cx-vui-input>
+				<cx-vui-input
+					label="<?php _e( 'Items path', 'jet-engine' ); ?>"
+					description="<?php _e( 'If items are nested in property, set the path to the items separated with `/` for example: `/data/items`. Otherwise, leave this field blank.', 'jet-engine' ); ?>"
+					:wrapper-css="[ 'equalwidth', 'has-macros' ]"
+					size="fullwidth"
+					v-model="query.items_path"
+				><jet-query-dynamic-args v-model="dynamicQuery.prop"></jet-query-dynamic-args></cx-vui-input>
 				<cx-vui-component-wrapper
 					:wrapper-css="[ 'fullwidth-control' ]"
 				>

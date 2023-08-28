@@ -23,11 +23,19 @@ class Query extends \Jet_Engine\Query_Builder\Queries\Base_Query {
 
 		$current_object = jet_engine()->listings->data->get_current_object();
 
-		if ( ! $current_object || ! isset( $current_object->$prop ) || ! is_array( $current_object->$prop ) ) {
+		if ( ! $current_object || ! isset( $current_object->$prop ) ) {
 			return $result;
 		}
 
-		$result = $current_object->$prop;
+		$path = $this->final_query['items_path'] ?? false;
+
+		if ( $path ) {
+			$result = jet_engine_get_child( $current_object->$prop ?? array(), $path );
+		}
+
+		if ( ! is_array( $result ) ) {
+			return array();
+		}
 
 		array_walk( $result, function( &$item, $index ) {
 
