@@ -36,7 +36,9 @@ class Query extends \Jet_Engine\Query_Builder\Queries\Base_Query {
 		}
 
 		if ( $path ) {
-			$result = jet_engine_get_child( $current_object->$prop ?? array(), $path );
+			$result = jet_engine_get_child( $current_object->$prop, $path );
+		} else {
+			$result = $current_object->$prop;
 		}
 
 		if ( is_object( $result ) ) {
