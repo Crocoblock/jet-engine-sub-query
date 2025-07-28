@@ -4,6 +4,7 @@ namespace Jet_Engine_Sub_Query;
 class Query extends \Jet_Engine\Query_Builder\Queries\Base_Query {
 
 	public function get_items() {
+		$this->setup_query();
 		return $this->_get_items();
 	}
 
