@@ -25,6 +25,7 @@ class Query extends \Jet_Engine\Query_Builder\Queries\Base_Query {
 		$current_object = jet_engine()->listings->data->get_current_object();
 
 		$prop = trim( $prop, '/' );
+		$path = '';
 
 		if ( strpos( $prop , '/' ) ) {
 			$path_array = explode( '/', $prop );
